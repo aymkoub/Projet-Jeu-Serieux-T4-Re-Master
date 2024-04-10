@@ -29,6 +29,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 
 // Simule un composant de bouton
 import { ReactNode } from 'react';
+import { Joueur } from './Joueur';
 
 const Button = ({ children }: { children: ReactNode }) => {
   return (
@@ -91,9 +92,8 @@ const App = () => {
 
     </div>
       </div>
-      <div style={{ marginTop: '20px' }}>
-        {/* Barre de PV à 50% */}
-        <ProgressBar progress={50} />
+      <div>
+        <Joueur></Joueur>
       </div>
     </div>
   );
