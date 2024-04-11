@@ -27,7 +27,7 @@ export function Adversaire(adv : AdversaireProps) {
                     <div style={{width: `${pourcentagePv}%`,
                                 backgroundColor: 'red',
                                 height: '24px',
-                                transition: 'width 0.5s'}}></div>
+                                transition: 'width 0.5s'}}><p>{adv.pv} / {adv.pvMax}</p></div>
                 </div>
             </div>
         </div>

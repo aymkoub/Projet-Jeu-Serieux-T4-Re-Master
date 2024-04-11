@@ -52,12 +52,11 @@ export default function Partie(partieparams : Partie){
           top: 0,
           left: 0}}>
     
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
-            <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
-        </div>
-                        <p>{adversairePv} / {maxPV}</p>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
+                <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
+            </div>
                             
-                            <Joueur onAttack={handlePlayerAttack} />
-                        </div>
-                );
-        }
+            <Joueur onAttack={handlePlayerAttack} />
+        </div>
+    );
+}

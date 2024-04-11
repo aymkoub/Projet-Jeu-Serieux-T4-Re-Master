@@ -10,8 +10,8 @@ import './App.css'
 export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
     const [tours, setTours] = useState<number>(10);
-    const [barredevie, setBarredeVie] = useState<BarredeVie>({ pv : 50 });
-    const motivMax = barredevie.pv;
+    const [barredevie] = useState<BarredeVie>({ pv : 50 });
+    const motivMax = 50;
     const [pourcentagePv, setPourcentage] = useState(barredevie.pv / motivMax * 100);
     const [attacks, /*setAttacks*/] = useState<Attaque[]>([
 
@@ -98,7 +98,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
                         height: '24px',
                         transition: 'width 0.5s'}}
                         >
-                            <p>{barredevie.pv}</p>
+                            <p>{barredevie.pv} / {motivMax}</p>
                     </div>
                 </div>
             </div>
