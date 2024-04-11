@@ -5,11 +5,22 @@ interface CardProps {
   attaque: Attaque;
   isClicked: boolean;
   onClick: () => void;
-}
+  tour: number;
 
-const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick }) => {
+}
+const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick , tour }) => {
+  const [tourClique, setTourClique] = useState(0);
+
+  const enRechargement = tour < tourClique + 1+attaque.rechargement; // La carte est en rechargement si le tour actuel est inférieur au tour où la carte a été cliquée plus le temps de rechargement de l'attaque
+
+  const handleClick = () => {
+    if (enRechargement) return; // Si la carte est en rechargement, ne faites rien
+
+    onClick();
+    setTourClique(tour); // Mettre à jour le tour où la carte a été cliquée
+  };
   return (
-    <div onClick={onClick} style={{
+    <div onClick={handleClick} style={{
       flex: 1,
       maxWidth: '600px',
       boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
@@ -19,7 +30,7 @@ const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick }) => {
       textAlign: 'center',
       margin: '10px',
       position: 'relative',
-      backgroundColor: isClicked ? 'red' : 'white'
+      backgroundColor: enRechargement ? 'gray' : 'white' // Changez la couleur de fond en fonction de l'état de rechargement
     }}>
       <div style={{ position: 'absolute', top: 0, left: 0 }}>{`${attaque.cout} energie`}</div> 
       <div style={{ position: 'absolute', top: 0, right: 0 }}>{`${attaque.rechargement} cooldown`}</div>

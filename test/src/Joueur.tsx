@@ -9,6 +9,9 @@ import './App.css'
 
 export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
+    const [tours, setTours] = useState<number>(100);
+    const [dernierTourAttaque, setDernierTourAttaque] = useState<{ [key: string]: number }>({});
+
     const [attacks, setAttacks] = useState<Attaque[]>([
 
         {
@@ -57,8 +60,10 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const handleCardClick = (attaque: Attaque) => {
         setSelectedCard(selectedCard === attaque.title ? null : attaque.title);
         onAttack(attaque.degats);
+        setTours(tours + 1);
       };
 
+      
     useEffect(() => {
         const handleCardClick = (title: string) => {
           setSelectedCard(prevSelectedCard => prevSelectedCard === title ? null : title);
@@ -78,7 +83,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
 
         <div style={{ display :'flex' ,  maxWidth: '800px',  textAlign: 'center'}}>
             {attacks.map((attaque) => (
-                <Card attaque={attaque} isClicked={selectedCard === attaque.title} onClick={() => handleCardClick(attaque)} />
+                <Card attaque={attaque} isClicked={selectedCard === attaque.title} onClick={() => handleCardClick(attaque)}  tour={tours} />
             ))}
         </div>
 
