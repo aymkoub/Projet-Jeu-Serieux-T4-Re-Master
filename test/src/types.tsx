@@ -19,13 +19,12 @@ export interface Attaque{
     image : string
 }
 
-export interface Ennemi{
-    pvnumber : number,
+export interface AdversaireProps{
+    pv : number,
     faiblesse? : string,
-    cheminImage : string
+    cheminImage? : string
 }
 
 export interface Partie{
-    nbTour : number,
     niveau : number
 }

@@ -1,4 +1,4 @@
-//import { useState } from 'react';
+import { useState } from 'react';
 import { Attaque } from './types'; // Assurez-vous que le chemin d'importation est correct
 
 interface CardProps {

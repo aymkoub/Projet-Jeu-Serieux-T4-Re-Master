@@ -9,10 +9,9 @@ import './App.css'
 
 export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
-    const [tours, setTours] = useState<number>(100);
-    const [dernierTourAttaque, setDernierTourAttaque] = useState<{ [key: string]: number }>({});
+    const [tours, setTours] = useState<number>(10);
 
-    const [attacks, setAttacks] = useState<Attaque[]>([
+    const [attacks, /*setAttacks*/] = useState<Attaque[]>([
 
         {
             title: "Attaque 1",
@@ -31,7 +30,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             cout: 2,
             degats: 20,
             type: "attractivité",
-            effet: "Inflige 10 de persuasion !\n",
+            effet: "Inflige 20 de persuasion !\n",
             description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
             image: WarioTime,
             onClick: () => {} // Add onClick property
@@ -42,7 +41,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             cout: 3,
             degats: 30,
             type: "enseignant",
-            effet: "Inflige 10 de persuasion !\n",
+            effet: "Inflige 30 de persuasion !\n",
             description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
             image: WarioTime,
             onClick: () => {} // Add onClick property
@@ -53,7 +52,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             cout: 4,
             degats: 40,
             type: "maquette",
-            effet: "Inflige 10 de persuasion !\n",
+            effet: "Inflige 40 de persuasion !\n",
             description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
             image: WarioTime,
             onClick: () => {} // Add onClick property

@@ -3,7 +3,7 @@ import './App.css';
 import { Joueur } from './Joueur';
 import { Adversaire } from './Adversaire'; // Assurez-vous que le chemin d'importation est correct
 
-const App = () => {
+export function App (){
 
   const [adversairePv, setAdversairePv] = useState(100);
 
@@ -25,7 +25,4 @@ const App = () => {
       </div>
     </div>
   );
-};
-
-
-export default App;
+}
