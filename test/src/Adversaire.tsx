@@ -4,6 +4,8 @@ import type { AdversaireProps} from './types';
 //import Card from './Card';
 
 export function Adversaire(adv : AdversaireProps) {
+    const pourcentagePv = (adv.pv / adv.pvMax) * 100;
+
    
     // const [selectedCard, setSelectedCard] = useState<string | null>(null);
     
@@ -22,7 +24,7 @@ export function Adversaire(adv : AdversaireProps) {
         }}>
             <div style={{ width: '100%' }}> {/* Ajoutez cette div */}
                 <div style={{ border: '1px solid #000', padding: '2px' }}>
-                    <div style={{width: `${adv.pv}%`,
+                    <div style={{width: `${pourcentagePv}%`,
                                 backgroundColor: 'red',
                                 height: '24px',
                                 transition: 'width 0.5s'}}></div>

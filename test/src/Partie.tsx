@@ -8,16 +8,18 @@ import Test from "./img/test.png"
 
 export default function Partie(partieparams : Partie){
     const [niveau,setNiveau] = useState(partieparams.niveau);
-    const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage:chuche});
+    const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage: chuche, pvMax: 20*niveau});
+    const maxPV = adversaire.pv;
     const [adversairePv, setAdversairePv] = useState(adversaire.pv);
 
     useEffect(() => {
         if(adversairePv === 0){
             setNiveau(niveau+1);
             const newAdv : AdversaireProps = {
-                pv : adversairePv,
-                cheminImage : sahide
-            }
+                pv : 20*maxPV,
+                cheminImage : sahide,
+                pvMax: 20*adversairePv
+            };maxPV
             setAdversaire(newAdv);
         }
     },[adversairePv, niveau]);
@@ -48,9 +50,9 @@ export default function Partie(partieparams : Partie){
           top: 0,
           left: 0}}>
     
-          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
-            <Adversaire pv={adversaire.pv} cheminImage={adversaire.cheminImage}/>
-          </div>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
+            <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
+        </div>
           
           <Joueur onAttack={handlePlayerAttack} />
         </div>
