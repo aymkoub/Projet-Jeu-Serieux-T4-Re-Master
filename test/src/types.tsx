@@ -16,8 +16,9 @@ export interface Attaque{
 }
 
 export interface Ennemi{
-    barredevie : BarredeVie,
-    faiblesse : string
+    pvnumber : number,
+    faiblesse? : string,
+    cheminImage : string
 }
 
 export interface Partie{
