@@ -14,13 +14,15 @@ export default function Partie(partieparams : Partie){
 
     useEffect(() => {
         if(adversairePv === 0){
+            
             setNiveau(niveau+1);
             const newAdv : AdversaireProps = {
-                pv : 20*maxPV,
+                pv : 40*niveau,
                 cheminImage : sahide,
-                pvMax: 20*adversairePv
+                pvMax: 40*niveau
             };maxPV
             setAdversaire(newAdv);
+            setAdversairePv(newAdv.pv);
         }
     },[adversairePv, niveau]);
     
@@ -53,8 +55,9 @@ export default function Partie(partieparams : Partie){
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
             <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
         </div>
-          
-          <Joueur onAttack={handlePlayerAttack} />
-        </div>
-    );
-}
+                        <p>{adversairePv} / {maxPV}</p>
+                            
+                            <Joueur onAttack={handlePlayerAttack} />
+                        </div>
+                );
+        }
