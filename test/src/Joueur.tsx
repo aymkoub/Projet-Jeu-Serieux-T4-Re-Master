@@ -30,7 +30,28 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             effet: "3.000.500.000  de degat",
             image: WarioTime,
             onClick: () => {} // Add onClick property
+        },
+        {
+            title: "Attaque 3",
+            rechargement: 4,
+            cout: 3,
+            degats: 30,
+            type: "Eleve",
+            effet: "3.000.500.000  de degat",
+            image: WarioTime,
+            onClick: () => {} // Add onClick property
+        },
+        {
+            title: "Attaque 4",
+            rechargement: 5,
+            cout: 4,
+            degats: 40,
+            type: "Eleve",
+            effet: "3.000.500.000  de degat",
+            image: WarioTime,
+            onClick: () => {} // Add onClick property
         }
+
     ]);
 
     const handleCardClick = (attaque: Attaque) => {
@@ -56,7 +77,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
          <div>
 
 
-        <div style={{ display :'flex' ,  maxWidth: '500px',  textAlign: 'center'}}>
+        <div style={{ display :'flex' ,  maxWidth: '800px',  textAlign: 'center'}}>
             {attacks.map((attaque) => (
                 <Card attaque={attaque} isClicked={selectedCard === attaque.title} onClick={() => handleCardClick(attaque)} />
             ))}
