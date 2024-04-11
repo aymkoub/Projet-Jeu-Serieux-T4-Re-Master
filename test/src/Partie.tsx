@@ -29,7 +29,7 @@ export default function Partie(partieparams : Partie){
         }
         else
         {            
-            setAdversairePv(prevPv => prevPv - degats);            
+            setAdversairePv(actuelPv);            
         }
     };
 
@@ -48,12 +48,7 @@ export default function Partie(partieparams : Partie){
           top: 0,
           left: 0}}>
     
-          <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            width: '100%'
-            }}>
+          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
             <Adversaire pv={adversaire.pv} cheminImage={adversaire.cheminImage}/>
           </div>
           
