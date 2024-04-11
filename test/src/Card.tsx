@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { Attaque } from './types'; // Assurez-vous que le chemin d'importation est correct
 
 interface CardProps {
@@ -28,6 +28,7 @@ const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick }) => {
       </div>
       <h4><b>{attaque.title}</b></h4> 
       <p>{attaque.effet}</p>
+      <i>{attaque.description}</i>
     </div>
   );
 };
