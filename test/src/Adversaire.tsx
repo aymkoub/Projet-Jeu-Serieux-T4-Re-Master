@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import saifImage from './saif.jpg'; // Assurez-vous que le chemin d'importation est correct
+import saifImage from './img/saif.jpg'; // Assurez-vous que le chemin d'importation est correct
 import { Attaque } from './types';
 import Card from './Card';
 
