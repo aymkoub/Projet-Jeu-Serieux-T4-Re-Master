@@ -28,7 +28,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             title: "Attaque 2",
             rechargement: 3,
             cout: 2,
-            degats: 0,
+            degats: 20,
             type: "attractivité",
             effet: "Inflige 20 de persuasion !\n",
             description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
@@ -64,7 +64,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
         setSelectedCard(selectedCard === attaque.title ? null : attaque.title);
         onAttack(attaque.degats);
         setTours(tours + 1);
-      };
+    };
 
       
     useEffect(() => {
@@ -83,27 +83,23 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     };
     //setAttacks();
     return (
-         <div>
-
-
-        <div style={{ display :'flex' ,  maxWidth: '800px',  textAlign: 'center'}}>
-            {attacks.map((attaque) => (
-                <Card attaque={attaque} isClicked={selectedCard === attaque.title} onClick={() => handleCardClick(attaque)}  tour={tours} />
-            ))}
-        </div>
-
-
-
-        
         <div>
-<button onClick={() => { onAttack(0); setTours(tours + 1); }}>Passer le tour</button>
-            <div style={{ border: '1px solid #000', padding: '2px' }}>
-            <div style={{width: `${barredevie.pv}%`,
+            <div style={{ display :'flex', maxWidth: '800px', textAlign: 'center'}}>
+                {attacks.map((attaque) => (
+                    <Card attaque={attaque} isClicked={selectedCard === attaque.title} onClick={() => handleCardClick(attaque)}  tour={tours} />
+                ))}
+            </div>
+
+            <div>
+                <button onClick={() => { onAttack(0); setTours(tours + 1); }}>Passer le tour</button>
+                <div style={{ border: '1px solid #000', padding: '2px' }}>
+                    <div style={{width: `${barredevie.pv}%`,
                         backgroundColor: 'green',
                         height: '24px',
-                        transition: 'width 0.5s'}}></div>
+                        transition: 'width 0.5s'}}>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     )
 }

@@ -1,12 +1,27 @@
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import './App.css';
 import { Joueur } from './Joueur';
 import { Adversaire } from './Adversaire'; // Assurez-vous que le chemin d'importation est correct
 import Test from './img/test.png' // Assurez-vous que le chemin d'importation est correct
+import { AdversaireProps } from './types';
+import sahide from "./img/saif.jpg";
 
-export function App (){
+export default function App (){
 
-  const [adversairePv, setAdversairePv] = useState(100);
+  const [niveau,setNiveau] = useState(1);
+  const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage:sahide});
+  const [adversairePv, setAdversairePv] = useState(adversaire.pv);
+
+  useEffect(() => {
+    if(adversairePv === 0){
+        setNiveau(niveau+1);
+        const newAdv : AdversaireProps = {
+            pv : adversairePv,
+            cheminImage : sahide
+        }
+        setAdversaire(newAdv);
+    }
+  },[adversairePv, niveau]);
 
   const handlePlayerAttack = (degats: number) => {
     if ((adversairePv - degats) <= 0) {
@@ -14,7 +29,7 @@ export function App (){
     }
     else
     {
-    setAdversairePv(prevPv => prevPv - degats);
+      setAdversairePv(prevPv => prevPv - degats);
     }
   };
 
@@ -31,18 +46,13 @@ export function App (){
       width: '100vw',
       position: 'fixed',
       top: 0,
-      left: 0
-  }}>
-    <div style={{
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      width: '100%'
-    }}>
-      <Adversaire pv={adversairePv} />
-    </div>
+      left: 0}}>
+
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
+        <Adversaire pv={adversairePv} cheminImage={adversaire.cheminImage}/>
+      </div>
       
-    <Joueur onAttack={handlePlayerAttack} />
-  </div>
-);
-  }
+      <Joueur onAttack={handlePlayerAttack} />
+    </div>
+  );
+}
