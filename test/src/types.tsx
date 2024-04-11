@@ -8,11 +8,14 @@ export interface Joueur{
 }
 
 export interface Attaque{
+    onClick: () => void;
+    title : string,
     rechargement : number,
     cout : number,
     degats : number,
     type : string,
     effet : string
+    image : string
 }
 
 export interface Ennemi{

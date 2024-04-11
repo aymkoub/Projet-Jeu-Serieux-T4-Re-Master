@@ -1,67 +1,31 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import { Joueur } from './Joueur';
+import { Adversaire } from './Adversaire'; // Assurez-vous que le chemin d'importation est correct
 
-// Simule un composant de barre de progression
-interface ProgressBarProps {
-  progress: number;
-}
+const App = () => {
+  const [adversairePv, setAdversairePv] = useState(100);
+  const [joueurPv, setJoueurPv] = useState(100);
 
-const ProgressBar = ({ progress }: ProgressBarProps) => {
-  const ProgressBarStyle = {
-    width: `${progress}%`,
-    backgroundColor: 'blue',
-    height: '24px',
-    transition: 'width 0.5s'
+  const handlePlayerAttack = (degats: number) => {
+    setAdversairePv(prevPv => prevPv - degats);
+  };
+
+  const handleAdversaireAttack = (degats: number) => {
+    setJoueurPv(prevPv => prevPv - degats);
   };
 
   return (
-    <div style={{ border: '1px solid #000', padding: '2px' }}>
-      <div style={ProgressBarStyle}></div>
+    <div>
+      <div>
+      <Adversaire onAttack={handleAdversaireAttack} />
+
+        <Joueur onAttack={handlePlayerAttack} />
+      </div>
+      <div>Adversaire PV: {adversairePv}</div>
+      <div>Joueur PV: {joueurPv}</div>
     </div>
   );
-};
-
-// Simule un composant de bouton
-import { ReactNode } from 'react';
-import { Joueur } from './Joueur';
-import { Ennemi } from './Ennemi';
-
-const Button = ({ children }: { children: ReactNode }) => {
-  return (
-    <button style={{ margin: '5px', padding: '5px 10px' }}>
-      {children}
-    </button>
-  );
-};
-
-const App = () => {
-  // État pour la barre de progression
-  const [progress, setProgress] = useState(50);
-
-  return (
-    <div >
-      <div style={{ marginBottom: '50px', padding: '50px', border: '1px solid #000' }}>
-        {/* Un espace pour une image ou un composant */}
-      </div>
-      <div style={{ marginBottom: '20px' }}>
-        {/* Barre de PV (Points de Vie ou Progression) */}
-        <div>
-          <Ennemi cheminImage='./img/chuche.jpg' pvnumber={50}></Ennemi>
-        </div>
-      </div>
-      <div>
-        {/* Boutons */}
-        <Button>Bouton</Button>
-        <Button>Bouton</Button>
-        <Button>Bouton</Button>
-        <Button>Bouton</Button>
-      </div>
-      <div>
-        <Joueur></Joueur>
-      </div>
-    </div>
-  );
-};
+}; 
 
 export default App;
-
