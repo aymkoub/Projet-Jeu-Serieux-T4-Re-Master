@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 // Simule un composant de barre de progression
@@ -26,6 +24,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 // Simule un composant de bouton
 import { ReactNode } from 'react';
 import { Joueur } from './Joueur';
+import { Ennemi } from './Ennemi';
 
 const Button = ({ children }: { children: ReactNode }) => {
   return (
@@ -46,7 +45,9 @@ const App = () => {
       </div>
       <div style={{ marginBottom: '20px' }}>
         {/* Barre de PV (Points de Vie ou Progression) */}
-        <ProgressBar progress={progress} />
+        <div>
+          <Ennemi cheminImage='./img/chuche.jpg' pvnumber={50}></Ennemi>
+        </div>
       </div>
       <div>
         {/* Boutons */}
