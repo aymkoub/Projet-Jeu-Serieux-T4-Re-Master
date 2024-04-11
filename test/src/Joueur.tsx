@@ -17,7 +17,8 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             cout: 1,
             degats: 10,
             type: "locaux",
-            effet: "20 de degat",
+            effet: "Inflige 10 de persuasion !\n",
+            description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
             image: waluigiImage,
             onClick: () => {} // Add onClick property
         },
@@ -26,8 +27,9 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             rechargement: 3,
             cout: 2,
             degats: 20,
-            type: "Eleve",
-            effet: "3.000.500.000  de degat",
+            type: "attractivité",
+            effet: "Inflige 10 de persuasion !\n",
+            description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
             image: WarioTime,
             onClick: () => {} // Add onClick property
         },
@@ -36,8 +38,9 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             rechargement: 4,
             cout: 3,
             degats: 30,
-            type: "Eleve",
-            effet: "3.000.500.000  de degat",
+            type: "enseignant",
+            effet: "Inflige 10 de persuasion !\n",
+            description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
             image: WarioTime,
             onClick: () => {} // Add onClick property
         },
@@ -46,8 +49,9 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             rechargement: 5,
             cout: 4,
             degats: 40,
-            type: "Eleve",
-            effet: "3.000.500.000  de degat",
+            type: "maquette",
+            effet: "Inflige 10 de persuasion !\n",
+            description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
             image: WarioTime,
             onClick: () => {} // Add onClick property
         }
@@ -72,7 +76,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const barredevie : BarredeVie = {
         pv : 50
     };
-    //setListAttaques();
+    //setAttacks();
     return (
          <div>
 

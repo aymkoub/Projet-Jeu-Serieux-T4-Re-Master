@@ -15,6 +15,7 @@ export interface Attaque{
     degats : number,
     type : string,
     effet : string
+    description : string
     image : string
 }
 
