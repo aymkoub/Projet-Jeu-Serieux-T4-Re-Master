@@ -10,13 +10,15 @@ import './App.css'
 export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
     const [tours, setTours] = useState<number>(10);
-
+    const [barredevie, setBarredeVie] = useState<BarredeVie>({ pv : 50 });
+    const motivMax = barredevie.pv;
+    const [pourcentagePv, setPourcentage] = useState(barredevie.pv / motivMax * 100);
     const [attacks, /*setAttacks*/] = useState<Attaque[]>([
 
         {
             title: "Attaque 1",
             rechargement: 2,
-            cout: 1,
+            cout: 5,
             degats: 10,
             type: "locaux", 
             effet: "Inflige de la persuasion !\n",
@@ -27,7 +29,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
         {
             title: "Attaque 2",
             rechargement: 3,
-            cout: 2,
+            cout: 5,
             degats: 20,
             type: "attractivité",
             effet: "Inflige 20 de persuasion !\n",
@@ -38,7 +40,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
         {
             title: "Attaque 3",
             rechargement: 4,
-            cout: 3,
+            cout: 5,
             degats: 30,
             type: "enseignant",
             effet: "Inflige 30 de persuasion !\n",
@@ -49,7 +51,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
         {
             title: "Attaque 4",
             rechargement: 5,
-            cout: 4,
+            cout: 5,
             degats: 40,
             type: "maquette",
             effet: "Inflige 40 de persuasion !\n",
@@ -63,10 +65,11 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
     const handleCardClick = (attaque: Attaque) => {
         setSelectedCard(selectedCard === attaque.title ? null : attaque.title);
         onAttack(attaque.degats);
+        barredevie.pv -= attaque.cout;
+        setPourcentage(barredevie.pv / motivMax * 100);
         setTours(tours + 1);
     };
 
-      
     useEffect(() => {
         const handleCardClick = (title: string) => {
           setSelectedCard(prevSelectedCard => prevSelectedCard === title ? null : title);
@@ -74,13 +77,10 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
       
         
         attacks.forEach(attaque => {
-          attaque.onClick = () => handleCardClick(attaque.title);
+            attaque.onClick = () => handleCardClick(attaque.title);
         });
       }, [attacks]);
-  
-    const barredevie : BarredeVie = {
-        pv : 50
-    };
+
     //setAttacks();
     return (
         <div>
@@ -91,12 +91,14 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             </div>
 
             <div>
-                <button onClick={() => { onAttack(0); setTours(tours + 1); }}>Passer le tour</button>
+                <button onClick={() => { onAttack(0); setTours(tours + 1); barredevie.pv -= 5; setPourcentage(barredevie.pv / motivMax *100); }}>Passer le tour</button>
                 <div style={{ border: '1px solid #000', padding: '2px' }}>
-                    <div style={{width: `${barredevie.pv}%`,
+                    <div style={{width: `${pourcentagePv}%`,
                         backgroundColor: 'green',
                         height: '24px',
-                        transition: 'width 0.5s'}}>
+                        transition: 'width 0.5s'}}
+                        >
+                            <p>{barredevie.pv}</p>
                     </div>
                 </div>
             </div>
