@@ -18,8 +18,8 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             rechargement: 2,
             cout: 1,
             degats: 10,
-            type: "locaux",
-            effet: "Inflige 10 de persuasion !\n",
+            type: "locaux", 
+            effet: "Inflige de la persuasion !\n",
             description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
             image: waluigiImage,
             onClick: () => {} // Add onClick property
@@ -28,7 +28,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             title: "Attaque 2",
             rechargement: 3,
             cout: 2,
-            degats: 20,
+            degats: 0,
             type: "attractivité",
             effet: "Inflige 20 de persuasion !\n",
             description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
@@ -72,6 +72,7 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
           setSelectedCard(prevSelectedCard => prevSelectedCard === title ? null : title);
         };
       
+        
         attacks.forEach(attaque => {
           attaque.onClick = () => handleCardClick(attaque.title);
         });
@@ -91,8 +92,11 @@ export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
             ))}
         </div>
 
+
+
         
         <div>
+<button onClick={() => { onAttack(0); setTours(tours + 1); }}>Passer le tour</button>
             <div style={{ border: '1px solid #000', padding: '2px' }}>
             <div style={{width: `${barredevie.pv}%`,
                         backgroundColor: 'green',
