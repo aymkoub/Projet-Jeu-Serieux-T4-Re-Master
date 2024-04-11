@@ -23,8 +23,7 @@ export interface AdversaireProps{
     pv : number,
     faiblesse? : string,
     cheminImage? : string
-    pvActuels: number;
-
+    pvMax: number;
 }
 
 export interface Partie{

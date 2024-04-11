@@ -1,6 +1,6 @@
 //import { useState } from 'react';
 // Assurez-vous que le chemin d'importation est correct
-import type { AdversaireProps} from './types';
+import type { AdversaireProps } from './types';
 //import Card from './Card';
 
 export function Adversaire(adv : AdversaireProps) {
