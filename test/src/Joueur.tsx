@@ -7,7 +7,7 @@ import WarioTime from './img/wario.png';
 import './App.css'
 
 
-export function Joueur({ onAttack }: { onAttack: (degats: number) => void }){
+export function Joueur({ onAttack, attacks }: { onAttack: (damage: number) => void, attacks: Attaque[] }) {
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
     const [tours, setTours] = useState<number>(10);
     const [barredevie] = useState<BarredeVie>({ pv : 50 });

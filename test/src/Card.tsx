@@ -61,7 +61,6 @@ const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick , tour }) => {
         <div style={{ position: 'absolute', top: 0, right: 0 }}>{`${attaque.rechargement} cooldown`}</div>
         <div style={{ position: 'absolute', bottom: 0, left: 0 }}>{`${attaque.type}`}</div>
         <div style={{ margin: '16px', border: '1px solid #ccc' }}>
-          <img src={attaque.image} alt="Card image" style={{ maxWidth: '100%', height: 'auto' }} />
         </div>
         <h4><b>{attaque.title}</b></h4> 
         <p>{descriptionOrDegats}</p>
@@ -87,7 +86,6 @@ const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick , tour }) => {
       }}>
         <div style={{ position: 'absolute', top: 0, right: 0 }}>{`${attaque.rechargement} cooldown`}</div>
         <div style={{ margin: '16px', border: '1px solid #ccc' }}>
-          <img src={attaque.image} alt="Card image" style={{ maxWidth: '100%', height: 'auto' }} />
         </div>
         <h4><b>Cooldown restant  : {rechargementRestant} </b></h4> 
          </div>
