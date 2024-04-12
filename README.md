@@ -20,7 +20,7 @@ Re;Master est un jeu pédagogique dans lequel on rencontre et valide les différ
 ### Captures d'écran
 
 ### Procédures d'installation et d'exécution
-Pour lancer le jeu il vous faut simplement cliquer sur ce lien : [Re-Master2](https://re-master2.vercel.app/)  
+Pour lancer le jeu il vous faut simplement cliquer sur ce lien : [Re-Master](https://re-master-umber.vercel.app/)  
 /!\ Ne rechargez pas la page, vous rencontrez une erreur.
 
 Voici la correction de votre texte :
