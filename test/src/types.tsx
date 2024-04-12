@@ -24,7 +24,6 @@ export interface AdversaireProps{
     faiblesse? : string,
     cheminImage? : string
     pvMax: number;
-
 }
 
 export interface Partie{

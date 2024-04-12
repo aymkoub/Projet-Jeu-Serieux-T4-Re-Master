@@ -12,7 +12,7 @@ export default function Partie(partieparams : Partie){
     const maxPV = adversaire.pv;
     const [adversairePv, setAdversairePv] = useState(adversaire.pv);
     const [ attaks, setAttaks] = useState<Attaque[]>([]);
-    const [CardDebloquer, setCardDebloquer] = useState<Number>(4);
+    const [CardDebloquer, setCardDebloquer] = useState<number>(4);
     const [selectedCards, setSelectedCards] = useState<Attaque[]>([]);
 
 
@@ -25,220 +25,260 @@ export default function Partie(partieparams : Partie){
     };
     useEffect(() => {
         setAttaks([
-            {
-            title: "Attaque 1",
-            rechargement: 2,
-            cout: 1,
-            degats: 10,
-            type: "locaux", 
-            effet: "Inflige de la persuasion !\n",
-            description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
-            onClick: () => {} // Add onClick property
-        },
         {
-            title: "Attaque 2",
+            title: "Préfabriqué",
             rechargement: 3,
-            cout: 2,
-            degats: 20,
+            cout: 5,
+            degats: 2,
+            type: "locaux", 
+            effet: "Inflige 1 de la persuasion !\n",
+            description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
+            onClick: () => { handlePlayerAttack(2) } // Add onClick property
+        },
+        {
+            title: "Pas très attractive",
+            rechargement: 3,
+            cout: 5,
+            degats: 2,
             type: "attractivité",
-            effet: "Inflige 20 de persuasion !\n",
+            effet: "Inflige 1 de persuasion !\n",
             description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
-            onClick: () => {} // Add onClick property
+            onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
         {
-            title: "Attaque 3",
-            rechargement: 4,
-            cout: 3,
-            degats: 30,
+            title: "Remplaçant",
+            rechargement: 3,
+            cout: 5,
+            degats: 2,
             type: "enseignant",
-            effet: "Inflige 30 de persuasion !\n",
+            effet: "Inflige 1 de persuasion !\n",
             description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
-            onClick: () => {} // Add onClick property
+            onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
         {
-            title: "Attaque 4",
-            rechargement: 5,
-            cout: 4,
-            degats: 40,
+            title: "Maquette en mille morceaux",
+            rechargement: 3,
+            cout: 5,
+            degats: 2,
             type: "maquette",
-            effet: "Inflige 40 de persuasion !\n",
+            effet: "Inflige 1 de persuasion !\n",
             description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
-            onClick: () => {} // Add onClick property
+            onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
             {
-                onClick: () => { handlePlayerAttack(25) },
-                title: 'Attaque 5',
-                rechargement: 5,
-                cout: 5,
-                degats: 25,
-                type: 'physique',
-                effet: 'Coup de poing',
+                title: "Débarras réaménagé",
+                rechargement: 2,
+                cout: 1,
+                degats: 1,
+                type: "locaux", 
+                effet: "Inflige 1 de la persuasion !\n",
+                description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
+                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+            },
+            {
+                title: "0 voeu sur parcoursup",
+                rechargement: 2,
+                cout: 1,
+                degats: 1,
+                type: "attractivité",
+                effet: "Inflige 1 de persuasion !\n",
+                description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
+                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+            },
+            {
+                title: "Enseignant gréviste",
+                rechargement: 2,
+                cout: 1,
+                degats: 1,
+                type: "enseignant",
+                effet: "Inflige 1 de persuasion !\n",
+                description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
+                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+            },
+            {
+                title: "Maquette de bateau",
+                rechargement: 2,
+                cout: 1,
+                degats: 1,
+                type: "maquette",
+                effet: "Inflige 1 de persuasion !\n",
+                description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
+                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+            },
+            {
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Bureau impersonnel',
+                rechargement: 2,
+                cout: 4,
+                degats: 5,
+                type: 'locaux',
+                effet: 'Inflige 5 de persuasion !\n',
                 description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 6',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Professeur dévoué',
+                rechargement: 2,
+                cout: 4,
+                degats: 5,
+                type: 'enseignant',
+                effet: 'Inflige 5 de persuasion !\n',
                 description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 7',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Quelques UE sont prêtes',
+                rechargement: 2,
+                cout: 4,
+                degats: 5,
+                type: 'maquette',
+                effet: 'Inflige 5 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 8',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Un groupe de lycéens motivés',
+                rechargement: 2,
+                cout: 4,
+                degats: 5,
+                type: 'attractivité',
+                effet: 'Inflige 5 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 9',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(9) },
+                title: 'Poudlard',
+                rechargement: 7,
+                cout: 4,
+                degats: 9,
+                type: 'attractivité',
+                effet: 'Inflige 9 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 10',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Salle des profs',
+                rechargement: 4,
+                cout: 2,
+                degats: 5,
                 type: 'physique',
-                effet: 'Coup de poing',
+                effet: 'Inflige 5 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 11',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
+                onClick: () => { handlePlayerAttack(20) },
+                title: 'Programme de béton',
+                rechargement: 7,
+                cout: 15,
+                degats: 20,
                 type: 'physique',
-                effet: 'Coup de poing',
+                effet: 'Inflige 20 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 12',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(9) },
+                title: 'Salle de classe',
+                rechargement: 7,
+                cout: 4,
+                degats: 9,
+                type: 'locaux',
+                effet: 'Inflige 1 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 13',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(9) },
+                title: 'Maquette bien ficelée',
+                rechargement: 7,
+                cout: 4,
+                degats: 9,
+                type: 'maquette',
+                effet: 'Inflige 9 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 14',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Séduisante',
+                rechargement: 4,
+                cout: 2,
+                degats: 5,
+                type: 'attractivité',
+                effet: 'Inflige 5 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 15',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(20) },
+                title: 'Amphi opéra',
+                rechargement: 7,
+                cout: 15,
+                degats: 20,
+                type: 'locaux',
+                effet: 'Inflige 20 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 16',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Vacataire en CDI',
+                rechargement: 4,
+                cout: 2,
+                degats: 5,
+                type: 'enseignant',
+                effet: 'Inflige 5 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 17',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
+                onClick: () => { handlePlayerAttack(5) },
+                title: 'Maquette écrite sur un bout de nappe',
+                rechargement: 4,
+                cout: 2,
+                degats: 5,
                 type: 'physique',
-                effet: 'Coup de poing',
+                effet: 'Inflige 5 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 18',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(9) },
+                title: 'Enseignant en colère',
+                rechargement: 7,
+                cout: 4,
+                degats: 9,
+                type: 'enseignant',
+                effet: 'Inflige 9 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 19',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
-                type: 'physique',
-                effet: 'Coup de poing',
+                onClick: () => { handlePlayerAttack(20) },
+                title: 'Horde de vacataires',
+                rechargement: 7,
+                cout: 15,
+                degats: 20,
+                type: 'enseignant',
+                effet: 'Inflige 20 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             },
             {
-                onClick: () => { handlePlayerAttack(30) },
-                title: 'Attaque 20',
-                rechargement: 6,
-                cout: 6,
-                degats: 30,
+                onClick: () => { handlePlayerAttack(20) },
+                title: 'Ecrase la concurrence',
+                rechargement: 7,
+                cout: 15,
+                degats: 20,
                 type: 'physique',
-                effet: 'Coup de poing',
+                effet: 'Inflige 20 de persuasion !\n',
                 description: 'Coup de poing dans la face',
-    
+
             }
     
     
@@ -398,7 +438,6 @@ return (
 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
     <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
 </div>
-                <p>{adversairePv} / {maxPV}</p>
                     
                     <Joueur onAttack={handlePlayerAttack} attacks={joueurAttaks} />
                 </div>
