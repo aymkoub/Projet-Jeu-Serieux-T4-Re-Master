@@ -71,6 +71,49 @@ export default function Partie(partieparams : Partie){
             description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
             onClick: () => { handlePlayerAttack(2,"maquette") } // Add onClick property
         },
+        {
+            onClick: () => { handlePlayerAttack(5,"locaux") },
+            title: 'Bureau impersonnel',
+            rechargement: 2,
+            cout: 4,
+            degats: 5,
+            type: 'locaux',
+            effet: 'Inflige 5 de persuasion !\n',
+            description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
+        },
+        {
+            onClick: () => { handlePlayerAttack(5,"enseignant") },
+            title: 'Professeur dévoué',
+            rechargement: 2,
+            cout: 4,
+            degats: 5,
+            type: 'enseignant',
+            effet: 'Inflige 5 de persuasion !\n',
+            description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
+
+        },
+        {
+            onClick: () => { handlePlayerAttack(5,"maquette") },
+            title: 'Quelques UE sont prêtes',
+            rechargement: 2,
+            cout: 4,
+            degats: 5,
+            type: 'maquette',
+            effet: 'Inflige 5 de persuasion !\n',
+            description: 'Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.',
+
+        },
+        {
+            onClick: () => { handlePlayerAttack(5,"attractivité") },
+            title: 'Un groupe de lycéens motivés',
+            rechargement: 2,
+            cout: 4,
+            degats: 5,
+            type: 'attractivité',
+            effet: 'Inflige 5 de persuasion !\n',
+            description: 'Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.',
+
+        },
             {
                 title: "Débarras réaménagé",
                 rechargement: 2,
@@ -110,49 +153,6 @@ export default function Partie(partieparams : Partie){
                 effet: "Inflige 1 de persuasion !\n",
                 description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
                 onClick: () => { handlePlayerAttack(1,"maquette") } // Add onClick property
-            },
-            {
-                onClick: () => { handlePlayerAttack(5,"locaux") },
-                title: 'Bureau impersonnel',
-                rechargement: 2,
-                cout: 4,
-                degats: 5,
-                type: 'locaux',
-                effet: 'Inflige 5 de persuasion !\n',
-                description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
-            },
-            {
-                onClick: () => { handlePlayerAttack(5,"enseignant") },
-                title: 'Professeur dévoué',
-                rechargement: 2,
-                cout: 4,
-                degats: 5,
-                type: 'enseignant',
-                effet: 'Inflige 5 de persuasion !\n',
-                description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
-
-            },
-            {
-                onClick: () => { handlePlayerAttack(5,"maquette") },
-                title: 'Quelques UE sont prêtes',
-                rechargement: 2,
-                cout: 4,
-                degats: 5,
-                type: 'maquette',
-                effet: 'Inflige 5 de persuasion !\n',
-                description: 'Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.',
-
-            },
-            {
-                onClick: () => { handlePlayerAttack(5,"attractivité") },
-                title: 'Un groupe de lycéens motivés',
-                rechargement: 2,
-                cout: 4,
-                degats: 5,
-                type: 'attractivité',
-                effet: 'Inflige 5 de persuasion !\n',
-                description: 'Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.',
-
             },
             {
                 onClick: () => { handlePlayerAttack(9, "attractivité") },
