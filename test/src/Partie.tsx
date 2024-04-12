@@ -2,19 +2,21 @@ import { useEffect, useState } from "react";
 import type { Partie, AdversaireProps, Attaque} from "./types";
 import { Joueur } from './Joueur';
 import { Adversaire } from "./Adversaire";
-import sahide from "./img/saif.jpg";
-import chuche from "./img/chuche.jpg"
-import Test from "./img/test.png"
+import zim from "./img/MathieuZIm.png";
+import cfvu from "./img/cfvu.png";
+import ca from "./img/ca.png";
+import iut from "./img/Logo_IUTRobertSchuman.png";
+import fond from "./img/fond4G.png";
 
 export default function Partie(partieparams : Partie){
     const [niveau,setNiveau] = useState(partieparams.niveau);
-    const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage: chuche, pvMax: 20*niveau});
+    const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage: zim, pvMax: 20*niveau});
     const maxPV = adversaire.pv;
     const [adversairePv, setAdversairePv] = useState(adversaire.pv);
     const [ attaks, setAttaks] = useState<Attaque[]>([]);
     const [CardDebloquer, setCardDebloquer] = useState<number>(4);
     const [selectedCards, setSelectedCards] = useState<Attaque[]>([]);
-
+    const [chemins] = useState([zim,iut,cfvu,ca]);
 
     const handleCardClick = (card: Attaque) => {
         if (selectedCards.includes(card)) {
@@ -31,7 +33,7 @@ export default function Partie(partieparams : Partie){
             cout: 5,
             degats: 2,
             type: "locaux", 
-            effet: "Inflige 1 de la persuasion !\n",
+            effet: "Inflige 2 de la persuasion !\n",
             description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
             onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
@@ -41,7 +43,7 @@ export default function Partie(partieparams : Partie){
             cout: 5,
             degats: 2,
             type: "attractivité",
-            effet: "Inflige 1 de persuasion !\n",
+            effet: "Inflige 2 de persuasion !\n",
             description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
             onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
@@ -51,7 +53,7 @@ export default function Partie(partieparams : Partie){
             cout: 5,
             degats: 2,
             type: "enseignant",
-            effet: "Inflige 1 de persuasion !\n",
+            effet: "Inflige 2 de persuasion !\n",
             description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
             onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
@@ -61,7 +63,7 @@ export default function Partie(partieparams : Partie){
             cout: 5,
             degats: 2,
             type: "maquette",
-            effet: "Inflige 1 de persuasion !\n",
+            effet: "Inflige 2 de persuasion !\n",
             description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
             onClick: () => { handlePlayerAttack(2) } // Add onClick property
         },
@@ -303,7 +305,7 @@ export default function Partie(partieparams : Partie){
         setNiveau(niveau + 1);
         const newAdv : AdversaireProps = {
             pv : 40 * (niveau + 1),
-            cheminImage : sahide,
+            cheminImage : chemins[niveau],
             pvMax: 40 * (niveau + 1)
         };
         setAdversaire(newAdv);
@@ -343,7 +345,7 @@ export default function Partie(partieparams : Partie){
 
         return (
         <div style={{
-            backgroundImage: `url(${Test})`,
+            backgroundImage: `url(${fond})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             display: 'flex',
@@ -419,7 +421,7 @@ export default function Partie(partieparams : Partie){
 
 return (
 <div style={{
-    backgroundImage: `url(${Test})`,
+    backgroundImage: `url(${fond})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     display: 'flex',
