@@ -5,7 +5,7 @@ import { Adversaire } from "./Adversaire";
 import sahide from "./img/saif.jpg";
 import chuche from "./img/chuche.jpg"
 import Test from "./img/test.png"
-import Card from "./Card";
+//import Card from "./Card";
 
 export default function Partie(partieparams : Partie){
     const [niveau,setNiveau] = useState(partieparams.niveau);
@@ -13,7 +13,7 @@ export default function Partie(partieparams : Partie){
     const maxPV = adversaire.pv;
     const [adversairePv, setAdversairePv] = useState(adversaire.pv);
     const [ attaks, setAttaks] = useState<Attaque[]>([]);
-    const [CardDebloquer, setCardDebloquer] = useState<Number>(4);
+    const [CardDebloquer, setCardDebloquer] = useState<number>(4);
     const [selectedCards, setSelectedCards] = useState<Attaque[]>([]);
 
 
@@ -392,7 +392,6 @@ return (
 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
     <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
 </div>
-                <p>{adversairePv} / {maxPV}</p>
                     
                     <Joueur onAttack={handlePlayerAttack} attacks={joueurAttaks} />
                 </div>
