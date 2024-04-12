@@ -3,18 +3,37 @@ import type { Joueur, Attaque, BarredeVie } from "./types";
 import { useState, useEffect } from 'react';
 
 import './App.css'
+interface JoueurProps {
+    pv: number;
+    onHpChange: (newHp: number) => void;
+    attacks: Attaque[] 
+    onAttack: (damage: number, type: string) => void
+    // autres propriétés...
+}
 
-
-export function Joueur({ onAttack, attacks }: { onAttack: (damage: number, type: string) => void, attacks: Attaque[] }) {
+export default function Joueur({ pv, onHpChange, attacks, onAttack }: JoueurProps) {
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
     const [tours, setTours] = useState<number>(10);
     const [barredevie] = useState<BarredeVie>({ pv : 100 });
     const motivMax = 100;
     const [pourcentagePv, setPourcentage] = useState(barredevie.pv / motivMax * 100);
+    const [joueurPv, setJoueurPv] = useState(pv);
+
+    const handleEnemyAttack = (degats: number) => {
+        const actuelPv = joueurPv - degats;
+        if (actuelPv <= 0) {
+            setJoueurPv(0);
+        } else {
+            setJoueurPv(actuelPv);
+        }
+        // Appelez onHpChange avec les nouveaux PV
+        onHpChange(joueurPv);
+    };
 
     const handleCardClick = (attaque: Attaque) => {
         setSelectedCard(selectedCard === attaque.title ? null : attaque.title);
         onAttack(attaque.degats, attaque.type);
+        handleEnemyAttack(attaque.cout)
         barredevie.pv -= attaque.cout;
         setPourcentage(barredevie.pv / motivMax * 100);
         setTours(tours + 1);
@@ -30,6 +49,11 @@ export function Joueur({ onAttack, attacks }: { onAttack: (damage: number, type:
             attaque.onClick = () => handleCardClick(attaque.title);
         });
       }, [attacks]);
+
+
+      useEffect(() => {
+        onHpChange(joueurPv);
+    }, [joueurPv]);
 
     //setAttacks();
     return (

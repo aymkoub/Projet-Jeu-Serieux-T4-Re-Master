@@ -26,6 +26,12 @@ export interface AdversaireProps{
     pvMax: number;
 }
 
+
+export interface JoueurProps{
+    onAttack:(damage: number) => void
+    attacks :Attaque[]
+    pv : number
+}
 export interface Partie{
     niveau : number
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Partie, AdversaireProps, Attaque} from "./types";
-import { Joueur } from './Joueur';
+import {Joueur} from './Joueur';
 import { Adversaire } from "./Adversaire";
 import zim from "./img/MathieuZIm.png";
 import cfvu from "./img/cfvu.png";
@@ -17,7 +17,10 @@ export default function Partie(partieparams : Partie){
     const [CardDebloquer, setCardDebloquer] = useState<number>(4);
     const [selectedCards, setSelectedCards] = useState<Attaque[]>([]);
     const [chemins] = useState([zim,iut,cfvu,ca]);
-    const [faiblesses] = useState(["enseignant", "attractivité", "maquette", "locaux"]);
+    const [faiblesses] = useState(["enseignant", "attractivité", "maquette", "locaux"]);    
+    const [isPlayerAlive, setIsPlayerAlive] = useState(true);
+    const [joueurPv, setJoueurPv] = useState(100); // Assumons que le joueur commence avec 100 PV
+
 
     const handleCardClick = (card: Attaque) => {
         if (selectedCards.includes(card)) {
@@ -292,6 +295,7 @@ export default function Partie(partieparams : Partie){
     ,[]);
     
 
+ 
     const [showInventory, setShowInventory] = useState(false);
 
    const handleInventory = () => {
@@ -302,6 +306,8 @@ export default function Partie(partieparams : Partie){
     // Réinitialiser les cartes sélectionnées chaque fois que l'inventaire est ouvert
     setSelectedCards([]);
 };
+
+
     const handleContinue = () => {
         setNiveau(niveau + 1);
         const newAdv : AdversaireProps = {
@@ -381,19 +387,22 @@ export default function Partie(partieparams : Partie){
         flexWrap: 'wrap', 
         justifyContent: 'space-around',
         alignItems: 'start'
+     
     }}>
-        {attaks.slice(0 as number, NewCard as number).map((carte) => (
-    <div style={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        justifyContent: 'space-around',
-        alignItems: 'start',
-        width: '150px',  // Ajoutez ceci
-        height: '200px'  // Et ceci
-    }} onClick={() => handleCardClick(carte)}>
-        <DebloqueCard attaque={carte} />
-    </div>
-))}
+                {attaks.slice(0 as number, NewCard as number).map((carte) => (
+            <div style={{ 
+                display: 'flex', 
+                flexWrap: 'wrap', 
+                justifyContent: 'space-around',
+                alignItems: 'start',
+                width: '150px',
+                height: '200px',
+                margin: '1rem', 
+                backgroundColor: selectedCards.includes(carte) ? 'red' : 'transparent' 
+            }} onClick={() => handleCardClick(carte)}>
+                <DebloqueCard attaque={carte} />
+            </div>
+        ))}
 </div>
 }
 <button style={{ 
@@ -423,8 +432,19 @@ export default function Partie(partieparams : Partie){
     
    
     const joueurAttaks = selectedCards.length < 4 ? attaks.slice(0, 4) : selectedCards;
+    
+  
+    const handlePlayerHpChange = (newHp: number) => {
+        setJoueurPv(newHp);
+        if (newHp <= 0) {
+            setIsPlayerAlive(false);
+        }
+    };
+    
+    
 
-return (
+    // Mettez à jour cet état dans votre fonction handleEnemyAttack
+if (isPlayerAlive) {return (
 <div style={{
     backgroundImage: `url(${fond})`,
     backgroundRepeat: 'no-repeat',
@@ -438,19 +458,47 @@ return (
     position: 'fixed',
     top: 0,
     left: 0}}>
+        
 
 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '100%'}}>
     <Adversaire pv={adversairePv} pvMax={maxPV} cheminImage={adversaire.cheminImage}/>
 </div>
+<p>{joueurPv}</p>
                     
-                    <Joueur onAttack={handlePlayerAttack} attacks={joueurAttaks} />
+            <Joueur onAttack={handlePlayerAttack} onHpChange={handlePlayerHpChange} attacks={joueurAttaks} pv={100} />
                 </div>
         );
+}
+else
+{
+    return (
+<div style={{
+    backgroundImage: `url(${fond})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between', // Répartit uniformément les éléments enfants
+    alignItems: 'center',
+    height: '100vh',
+    width: '100vw',
+    position: 'fixed',
+    top: 0,
+    left: 0}}>        <p>perdu</p>
+    <Link to="/partie">
+                <button>Recommencer</button>
+            </Link>
+            <div></div>
+    
+       </div>
+    );
+}
 }
 
 
 
 import BackCart from './img/cartBack.png'; // Assurez-vous que le chemin d'importation est correct
+import { Link } from "react-router-dom";
 
 
 const DebloqueCard: React.FC<{ attaque: Attaque }> = ({ attaque }) =>   {
