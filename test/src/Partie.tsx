@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Partie, AdversaireProps, Attaque} from "./types";
-import {Joueur} from './Joueur';
+import Joueur from './Joueur';
 import { Adversaire } from "./Adversaire";
 import zim from "./img/MathieuZIm.png";
 import cfvu from "./img/cfvu.png";
