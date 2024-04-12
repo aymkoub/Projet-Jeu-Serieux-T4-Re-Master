@@ -65,7 +65,7 @@ export default function Joueur({ pv, onHpChange, attacks, onAttack }: JoueurProp
             </div>
 
             <div>
-                <button onClick={() => { onAttack(0,""); setTours(tours + 1); barredevie.pv -= 5; setPourcentage(barredevie.pv / motivMax *100); }}>Passer le tour</button>
+                <button onClick={() => { onAttack(0,""); setTours(tours + 1); barredevie.pv -= 1; onHpChange(joueurPv); setPourcentage(barredevie.pv / motivMax *100); }}>Passer le tour</button>
                 <div style={{ border: '1px solid #000', padding: '2px' }}>
                     <div style={{width: `${pourcentagePv}%`,
                         backgroundColor: 'green',
