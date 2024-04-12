@@ -1,8 +1,6 @@
 import Card from "./Card";
 import type { Joueur, Attaque, BarredeVie } from "./types";
 import { useState, useEffect } from 'react';
-import waluigiImage from './img/waluigi.png';
-import WarioTime from './img/wario.png';
 
 import './App.css'
 

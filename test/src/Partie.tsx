@@ -5,7 +5,6 @@ import { Adversaire } from "./Adversaire";
 import sahide from "./img/saif.jpg";
 import chuche from "./img/chuche.jpg"
 import Test from "./img/test.png"
-import Card from "./Card";
 
 export default function Partie(partieparams : Partie){
     const [niveau,setNiveau] = useState(partieparams.niveau);
@@ -337,14 +336,18 @@ export default function Partie(partieparams : Partie){
         alignItems: 'start'
     }}>
         {attaks.slice(0 as number, NewCard as number).map((carte) => (
-            <div style={{ 
-                margin: '1rem', 
-                backgroundColor: selectedCards.includes(carte) ? 'red' : 'transparent' 
-            }} onClick={() => handleCardClick(carte)}>
-                <DebloqueCard attaque={carte} />
-            </div>
-        ))}
+    <div style={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        justifyContent: 'space-around',
+        alignItems: 'start',
+        width: '150px',  // Ajoutez ceci
+        height: '200px'  // Et ceci
+    }} onClick={() => handleCardClick(carte)}>
+        <DebloqueCard attaque={carte} />
     </div>
+))}
+</div>
 }
 <button style={{ 
     width: '200px', 
@@ -418,29 +421,30 @@ const DebloqueCard: React.FC<{ attaque: Attaque }> = ({ attaque }) =>   {
         }
       });
 
-    return (
-        <div  style={{
-        flex: 1,
-        backgroundImage: `url(${BackCart})`, // Utilisez BackCart comme image de fond
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+      return (
+        <div style={{
+            flex: 1,
+            backgroundImage: `url(${BackCart})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
             maxWidth: '600px',
-        boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-        transition: '0.3s',
-        borderRadius: '5px',
-        padding: '16px',
-        textAlign: 'center',
-        margin: '10px',
-        position: 'relative',
-        color:  'white' // Changez la couleur de fond en fonction de l'état de rechargement
+            boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+            transition: '0.3s',
+            borderRadius: '5px',
+            padding: '16px',
+            textAlign: 'center',
+            margin: '10px',
+            position: 'relative',
+            color:  'white'
         }}>
-        <div style={{ position: 'absolute', top: 0, left: 0 }}>{`${attaque.cout} energie`}</div>; 
-        <div style={{ position: 'absolute', top: 0, right: 0 }}>{`${attaque.rechargement} cooldown`}</div>;
-        <div style={{ position: 'absolute', bottom: 0, left: 0 }}>{`${attaque.type}`}</div>;
-        <div style={{ margin: '16px', border: '1px solid #ccc' }}></div>;
-        <h4><b>{attaque.title}</b></h4>; 
-        <p>{descriptionOrDegats}</p>;
-        <i style={{ fontSize: '12px' }}>{attaque.description}</i>;
+            <div style={{ position: 'absolute', top: 0, left: 0 }}>{`${attaque.cout} energie`}</div> 
+            <div style={{ position: 'absolute', top: 0, right: 0 }}>{`${attaque.rechargement} cooldown`}</div>
+            <div style={{ position: 'absolute', bottom: 0, left: 0 }}>{`${attaque.type}`}</div>
+            <div style={{ margin: '16px', border: '1px solid #ccc' }}>
+            </div>
+            <h4><b>{attaque.title}</b></h4> 
+            <p>{descriptionOrDegats}</p>
+            <i style={{ fontSize: '12px', whiteSpace: 'pre-line' }}>{attaque.description}</i>
         </div>
     );
         
@@ -451,26 +455,3 @@ const DebloqueCard: React.FC<{ attaque: Attaque }> = ({ attaque }) =>   {
 
 
 
-
-    const NotDebloqueCard: React.FC<{ attaque: Attaque }> = ({ attaque }) =>   {
-        return (
-            <div  style={{
-              flex: 1,
-              maxWidth: '600px',
-              boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-              transition: '0.3s',
-              borderRadius: '5px',
-              padding: '16px',
-              textAlign: 'center',
-              margin: '10px',
-              position: 'relative',
-              backgroundColor:  'black', // Changez la couleur de fond en fonction de l'état de rechargement
-              color: 'white' // Changez la couleur de la police en blanc
-            }}>
-              <div style={{ position: 'absolute', top: 0, right: 0 }}>{`${attaque.rechargement} cooldown`}</div>
-              <div style={{ margin: '16px', border: '1px solid #ccc' }}>
-              </div>
-              <h4><b>Carte non debloquée</b></h4> 
-               </div>
-          )
-    }
