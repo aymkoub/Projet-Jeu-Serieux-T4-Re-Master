@@ -36,7 +36,7 @@ export default function Partie(partieparams : Partie){
             type: "locaux", 
             effet: "Inflige 2 de la persuasion !\n",
             description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
-            onClick: () => { handlePlayerAttack(2) } // Add onClick property
+            onClick: () => { handlePlayerAttack(2,"locaux") } // Add onClick property
         },
         {
             title: "Pas très attractive",
@@ -46,7 +46,7 @@ export default function Partie(partieparams : Partie){
             type: "attractivité",
             effet: "Inflige 2 de persuasion !\n",
             description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
-            onClick: () => { handlePlayerAttack(2) } // Add onClick property
+            onClick: () => { handlePlayerAttack(2,"attractivité") } // Add onClick property
         },
         {
             title: "Remplaçant",
@@ -56,7 +56,7 @@ export default function Partie(partieparams : Partie){
             type: "enseignant",
             effet: "Inflige 2 de persuasion !\n",
             description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
-            onClick: () => { handlePlayerAttack(2) } // Add onClick property
+            onClick: () => { handlePlayerAttack(2,"enseignant") } // Add onClick property
         },
         {
             title: "Maquette en mille morceaux",
@@ -66,7 +66,7 @@ export default function Partie(partieparams : Partie){
             type: "maquette",
             effet: "Inflige 2 de persuasion !\n",
             description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
-            onClick: () => { handlePlayerAttack(2) } // Add onClick property
+            onClick: () => { handlePlayerAttack(2,"maquette") } // Add onClick property
         },
             {
                 title: "Débarras réaménagé",
@@ -76,7 +76,7 @@ export default function Partie(partieparams : Partie){
                 type: "locaux", 
                 effet: "Inflige 1 de la persuasion !\n",
                 description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
-                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+                onClick: () => { handlePlayerAttack(1,"locaux") } // Add onClick property
             },
             {
                 title: "0 voeu sur parcoursup",
@@ -86,7 +86,7 @@ export default function Partie(partieparams : Partie){
                 type: "attractivité",
                 effet: "Inflige 1 de persuasion !\n",
                 description :"Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.",
-                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+                onClick: () => { handlePlayerAttack(1,"attractivité") } // Add onClick property
             },
             {
                 title: "Enseignant gréviste",
@@ -96,7 +96,7 @@ export default function Partie(partieparams : Partie){
                 type: "enseignant",
                 effet: "Inflige 1 de persuasion !\n",
                 description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
-                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+                onClick: () => { handlePlayerAttack(1,"enseignant") } // Add onClick property
             },
             {
                 title: "Maquette de bateau",
@@ -106,10 +106,10 @@ export default function Partie(partieparams : Partie){
                 type: "maquette",
                 effet: "Inflige 1 de persuasion !\n",
                 description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
-                onClick: () => { handlePlayerAttack(1) } // Add onClick property
+                onClick: () => { handlePlayerAttack(1,"maquette") } // Add onClick property
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"locaux") },
                 title: 'Bureau impersonnel',
                 rechargement: 2,
                 cout: 4,
@@ -119,7 +119,7 @@ export default function Partie(partieparams : Partie){
                 description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"enseignant") },
                 title: 'Professeur dévoué',
                 rechargement: 2,
                 cout: 4,
@@ -130,7 +130,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"maquette") },
                 title: 'Quelques UE sont prêtes',
                 rechargement: 2,
                 cout: 4,
@@ -141,7 +141,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"attractivité") },
                 title: 'Un groupe de lycéens motivés',
                 rechargement: 2,
                 cout: 4,
@@ -152,7 +152,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(9) },
+                onClick: () => { handlePlayerAttack(9, "attractivité") },
                 title: 'Poudlard',
                 rechargement: 7,
                 cout: 4,
@@ -163,7 +163,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"locaux") },
                 title: 'Salle des profs',
                 rechargement: 4,
                 cout: 2,
@@ -174,7 +174,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(20) },
+                onClick: () => { handlePlayerAttack(20, "maquette") },
                 title: 'Programme de béton',
                 rechargement: 7,
                 cout: 15,
@@ -185,7 +185,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(9) },
+                onClick: () => { handlePlayerAttack(9,"locaux") },
                 title: 'Salle de classe',
                 rechargement: 7,
                 cout: 4,
@@ -196,7 +196,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(9) },
+                onClick: () => { handlePlayerAttack(9,"maquette") },
                 title: 'Maquette bien ficelée',
                 rechargement: 7,
                 cout: 4,
@@ -207,7 +207,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"attractivité") },
                 title: 'Séduisante',
                 rechargement: 4,
                 cout: 2,
@@ -218,7 +218,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(20) },
+                onClick: () => { handlePlayerAttack(20,"locaux") },
                 title: 'Amphi opéra',
                 rechargement: 7,
                 cout: 15,
@@ -229,7 +229,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"enseignant") },
                 title: 'Vacataire en CDI',
                 rechargement: 4,
                 cout: 2,
@@ -240,7 +240,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(5) },
+                onClick: () => { handlePlayerAttack(5,"maquette") },
                 title: 'Maquette écrite sur un bout de nappe',
                 rechargement: 4,
                 cout: 2,
@@ -251,7 +251,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(9) },
+                onClick: () => { handlePlayerAttack(9,"enseignant") },
                 title: 'Enseignant en colère',
                 rechargement: 7,
                 cout: 4,
@@ -262,7 +262,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(20) },
+                onClick: () => { handlePlayerAttack(20,"enseignant") },
                 title: 'Horde de vacataires',
                 rechargement: 7,
                 cout: 15,
@@ -273,7 +273,7 @@ export default function Partie(partieparams : Partie){
 
             },
             {
-                onClick: () => { handlePlayerAttack(20) },
+                onClick: () => { handlePlayerAttack(20,"attractivité") },
                 title: 'Ecrase la concurrence',
                 rechargement: 7,
                 cout: 15,
@@ -327,7 +327,10 @@ export default function Partie(partieparams : Partie){
             setShowInventory(false);
         }
     };
-    const handlePlayerAttack = (degats: number) => {
+    const handlePlayerAttack = (degats: number, type: string) => {
+        if(adversaire.faiblesse === type){
+            degats *= 2;
+        }
         const actuelPv = adversairePv - degats;
         if ((actuelPv) <= 0) {
             setAdversairePv(0);

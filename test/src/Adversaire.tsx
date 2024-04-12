@@ -1,18 +1,7 @@
-//import { useState } from 'react';
-// Assurez-vous que le chemin d'importation est correct
 import type { AdversaireProps } from './types';
-//import Card from './Card';
 
 export function Adversaire(adv : AdversaireProps) {
     const pourcentagePv = (adv.pv / adv.pvMax) * 100;
-
-   
-    // const [selectedCard, setSelectedCard] = useState<string | null>(null);
-    
-
-    // const handleCardClick = (attaque: Attaque) => {
-    //     setSelectedCard(selectedCard === attaque.title ? null : attaque.title);
-    // };
 
     return (
         <div>

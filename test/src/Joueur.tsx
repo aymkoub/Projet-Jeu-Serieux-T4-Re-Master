@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import './App.css'
 
 
-export function Joueur({ onAttack, attacks }: { onAttack: (damage: number) => void, attacks: Attaque[] }) {
+export function Joueur({ onAttack, attacks }: { onAttack: (damage: number, type: string) => void, attacks: Attaque[] }) {
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
     const [tours, setTours] = useState<number>(10);
     const [barredevie] = useState<BarredeVie>({ pv : 100 });
@@ -14,7 +14,7 @@ export function Joueur({ onAttack, attacks }: { onAttack: (damage: number) => vo
 
     const handleCardClick = (attaque: Attaque) => {
         setSelectedCard(selectedCard === attaque.title ? null : attaque.title);
-        onAttack(attaque.degats);
+        onAttack(attaque.degats, attaque.type);
         barredevie.pv -= attaque.cout;
         setPourcentage(barredevie.pv / motivMax * 100);
         setTours(tours + 1);
@@ -41,7 +41,7 @@ export function Joueur({ onAttack, attacks }: { onAttack: (damage: number) => vo
             </div>
 
             <div>
-                <button onClick={() => { onAttack(0); setTours(tours + 1); barredevie.pv -= 5; setPourcentage(barredevie.pv / motivMax *100); }}>Passer le tour</button>
+                <button onClick={() => { onAttack(0,""); setTours(tours + 1); barredevie.pv -= 5; setPourcentage(barredevie.pv / motivMax *100); }}>Passer le tour</button>
                 <div style={{ border: '1px solid #000', padding: '2px' }}>
                     <div style={{width: `${pourcentagePv}%`,
                         backgroundColor: 'green',
