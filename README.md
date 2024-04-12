@@ -61,21 +61,22 @@ Le joueur incarne un jeune professeur désireux de faire adopter sa nouvelle for
 
 Les actions sont composées de :
 
+- Nom : le nom de l'action
 - Types : Locaux, enseignant, maquettes pédagogiques, attractivité.
 - Montant de validation : Quantité de validation à donner au boss.
 - Coût de motivation : Utiliser une action fait perdre de la motivation au joueur d’un montant équivalent au coût de l’action.
 - Temps de rechargement : Après avoir été utilisée, une action ne peut plus être utilisée pendant autant de tours que l’indique son temps de rechargement.
-- Description : Des informations didactiques sur le type de la carte.
+- Description : Des informations didactiques sur le type de la action.
 
 Les instances :
 
 - 4 instances différentes : M. Zimmerman, l’IUT, CFVU, CA.
+- Une barre de validation que l'on doit descendre à 0 pour valider l'instance
 - Faible à un certain type d’action.
-- Résiste à un certain type d’action.
 
 Les rencontres :
 
-- Au nombre de 4, une par instance, chacune existante.
+- Au nombre de 4, une par instance.
 - Après une rencontre, si l'instance est validée, le joueur obtient de nouvelles actions (jusqu’à épuisement de nouvelles actions).
 - Après chaque rencontre, le joueur peut modifier les 4 actions à sa disposition parmi celles qu’il a débloquées.
 
@@ -92,8 +93,8 @@ L'interface est constituée des éléments suivants :
 Après chaque rencontre :
 
 - Un bouton pour lancer la prochaine rencontre
-- La liste de toutes les actions découvertes (pour sélectionner celles voulues pour le prochain combat)
-- Les actions découvertes à la fin du com
+- La liste de toutes les actions découvertes (pour sélectionner celles voulues pour la prochaine rencontre)
+- Les actions découvertes à la fin de la rencontre
 
 
 #### Actions du joueur
@@ -124,7 +125,7 @@ Pour heberger le site web sur lequel jouer nous utilisons un dépot github coupl
 ### Fonctionnalités et scénarios avancés
 
 Les actions : 
-- Ajout d’effets supplémentaires tels que des effets passifs sur plusieurs tours, l’amélioration temporaire d’autres cartes, gain de motivation, etc.
+- Ajout d’effets supplémentaires tels que des effets passifs sur plusieurs tours, l’amélioration temporaire d’autres actions, gain de motivation, etc.
 - Un niveau, impactant la puissance des effets, les coûts en motivation, et/ou le temps de recharge
 - Certaines actions sont spécifiques à certains types et donc certaines synergies ne sont possibles qu’avec certains types d’actions
 - Les actions sélectionnées avant une rencontre sont présélectionnées avant chaque future rencontre
