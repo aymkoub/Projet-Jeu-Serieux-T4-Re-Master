@@ -3,10 +3,10 @@
 - Nom du groupe : Shoody-Battlers
 - Membres du groupe : ZOUAOUI-MAHJOUB Saif, LEROUX Aymeric, WILLEM Théo
 - Liens vers les évaluations T4 :
-  - BRUCKER Priscillia: <>
-  - HATT Victor : <>
-  - OREKHOV Vladimir: <>
-  - VALETTE-SCHUH Alexis: <>
+  - BRUCKER Priscillia: <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Priscillia_Brucker.md>
+  - HATT Victor : <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Victor_Hatt.md>
+  - OREKHOV Vladimir: <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Vladimir_Orekhov.md>
+  - VALETTE-SCHUH Alexis: <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Alexis_Valette--Schuh.md>
 
 
 ## Re;Master
