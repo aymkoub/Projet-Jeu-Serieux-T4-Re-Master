@@ -10,13 +10,14 @@ import fond from "./img/fond4G.png";
 
 export default function Partie(partieparams : Partie){
     const [niveau,setNiveau] = useState(partieparams.niveau);
-    const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage: zim, pvMax: 20*niveau});
+    const [adversaire , setAdversaire]=useState<AdversaireProps>({pv: 20*niveau, cheminImage: zim, pvMax: 20*niveau, faiblesse: "enseignant"});
     const maxPV = adversaire.pv;
     const [adversairePv, setAdversairePv] = useState(adversaire.pv);
     const [ attaks, setAttaks] = useState<Attaque[]>([]);
     const [CardDebloquer, setCardDebloquer] = useState<number>(4);
     const [selectedCards, setSelectedCards] = useState<Attaque[]>([]);
     const [chemins] = useState([zim,iut,cfvu,ca]);
+    const [faiblesses] = useState(["enseignant", "attractivité", "maquette", "locaux"]);
 
     const handleCardClick = (card: Attaque) => {
         if (selectedCards.includes(card)) {
@@ -115,7 +116,7 @@ export default function Partie(partieparams : Partie){
                 degats: 5,
                 type: 'locaux',
                 effet: 'Inflige 5 de persuasion !\n',
-                description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
+                description :"Proposez à votre interlocuteur des locaux où les cours pourront être assurés.",
             },
             {
                 onClick: () => { handlePlayerAttack(5) },
@@ -125,7 +126,7 @@ export default function Partie(partieparams : Partie){
                 degats: 5,
                 type: 'enseignant',
                 effet: 'Inflige 5 de persuasion !\n',
-                description :"Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.",
+                description :"Indiquez que vous avez des enseignants pour assurer les cours de votre formation.",
 
             },
             {
@@ -136,7 +137,7 @@ export default function Partie(partieparams : Partie){
                 degats: 5,
                 type: 'maquette',
                 effet: 'Inflige 5 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.',
 
             },
             {
@@ -147,7 +148,7 @@ export default function Partie(partieparams : Partie){
                 degats: 5,
                 type: 'attractivité',
                 effet: 'Inflige 5 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.',
 
             },
             {
@@ -158,7 +159,7 @@ export default function Partie(partieparams : Partie){
                 degats: 9,
                 type: 'attractivité',
                 effet: 'Inflige 9 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.',
 
             },
             {
@@ -167,9 +168,9 @@ export default function Partie(partieparams : Partie){
                 rechargement: 4,
                 cout: 2,
                 degats: 5,
-                type: 'physique',
+                type: 'locaux',
                 effet: 'Inflige 5 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Proposez à votre interlocuteur des locaux où les cours pourront être assurés.',
 
             },
             {
@@ -178,9 +179,9 @@ export default function Partie(partieparams : Partie){
                 rechargement: 7,
                 cout: 15,
                 degats: 20,
-                type: 'physique',
+                type: 'maquette',
                 effet: 'Inflige 20 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.',
 
             },
             {
@@ -191,7 +192,7 @@ export default function Partie(partieparams : Partie){
                 degats: 9,
                 type: 'locaux',
                 effet: 'Inflige 1 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Proposez à votre interlocuteur des locaux où les cours pourront être assurés.',
 
             },
             {
@@ -202,7 +203,7 @@ export default function Partie(partieparams : Partie){
                 degats: 9,
                 type: 'maquette',
                 effet: 'Inflige 9 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.',
 
             },
             {
@@ -213,7 +214,7 @@ export default function Partie(partieparams : Partie){
                 degats: 5,
                 type: 'attractivité',
                 effet: 'Inflige 5 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.',
 
             },
             {
@@ -224,7 +225,7 @@ export default function Partie(partieparams : Partie){
                 degats: 20,
                 type: 'locaux',
                 effet: 'Inflige 20 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Proposez à votre interlocuteur des locaux où les cours pourront être assurés.',
 
             },
             {
@@ -235,7 +236,7 @@ export default function Partie(partieparams : Partie){
                 degats: 5,
                 type: 'enseignant',
                 effet: 'Inflige 5 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Indiquez que vous avez des enseignants pour assurer les cours de votre formation.',
 
             },
             {
@@ -244,9 +245,9 @@ export default function Partie(partieparams : Partie){
                 rechargement: 4,
                 cout: 2,
                 degats: 5,
-                type: 'physique',
+                type: 'maquette',
                 effet: 'Inflige 5 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Votre maquette pédagogique est consistente et indique ce que vous voulez enseigner.',
 
             },
             {
@@ -257,7 +258,7 @@ export default function Partie(partieparams : Partie){
                 degats: 9,
                 type: 'enseignant',
                 effet: 'Inflige 9 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Indiquez que vous avez des enseignants pour assurer les cours de votre formation.',
 
             },
             {
@@ -268,7 +269,7 @@ export default function Partie(partieparams : Partie){
                 degats: 20,
                 type: 'enseignant',
                 effet: 'Inflige 20 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Indiquez que vous avez des enseignants pour assurer les cours de votre formation.',
 
             },
             {
@@ -277,9 +278,9 @@ export default function Partie(partieparams : Partie){
                 rechargement: 7,
                 cout: 15,
                 degats: 20,
-                type: 'physique',
+                type: 'attractivité',
                 effet: 'Inflige 20 de persuasion !\n',
-                description: 'Coup de poing dans la face',
+                description: 'Persuadez votre interlocuteur que votre formation peut attirer de nouveaux étudiants.',
 
             }
     
@@ -306,7 +307,8 @@ export default function Partie(partieparams : Partie){
         const newAdv : AdversaireProps = {
             pv : 40 * (niveau + 1),
             cheminImage : chemins[niveau],
-            pvMax: 40 * (niveau + 1)
+            pvMax: 40 * (niveau + 1),
+            faiblesse: faiblesses[niveau]
         };
         setAdversaire(newAdv);
         setAdversairePv(newAdv.pv);
