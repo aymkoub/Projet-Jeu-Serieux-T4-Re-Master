@@ -8,7 +8,7 @@ interface CardProps {
   tour: number;
 
 }
-const Card: React.FC<CardProps> = ({ attaque, isClicked, onClick , tour }) => {
+const Card: React.FC<CardProps> = ({ attaque, onClick , tour }) => {
   const [tourClique, setTourClique] = useState(0);
   const [descriptionOrDegats, setDescriptionOrDegats] = useState(attaque.description);
   const[ rechargementRestant , setRechargementRestant] = useState(attaque.rechargement);
