@@ -334,19 +334,22 @@ export default function Partie(partieparams : Partie){
         flexWrap: 'wrap', 
         justifyContent: 'space-around',
         alignItems: 'start'
+     
     }}>
-        {attaks.slice(0 as number, NewCard as number).map((carte) => (
-    <div style={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        justifyContent: 'space-around',
-        alignItems: 'start',
-        width: '150px',  // Ajoutez ceci
-        height: '200px'  // Et ceci
-    }} onClick={() => handleCardClick(carte)}>
-        <DebloqueCard attaque={carte} />
-    </div>
-))}
+                {attaks.slice(0 as number, NewCard as number).map((carte) => (
+            <div style={{ 
+                display: 'flex', 
+                flexWrap: 'wrap', 
+                justifyContent: 'space-around',
+                alignItems: 'start',
+                width: '150px',
+                height: '200px',
+                margin: '1rem', 
+                backgroundColor: selectedCards.includes(carte) ? 'red' : 'transparent' 
+            }} onClick={() => handleCardClick(carte)}>
+                <DebloqueCard attaque={carte} />
+            </div>
+        ))}
 </div>
 }
 <button style={{ 
