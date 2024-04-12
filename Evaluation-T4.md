@@ -23,8 +23,11 @@ Les étapes du projet tuteuré T2 sont les suivantes :
 
 # Propositions d'amélioration du cahier des charges
 
-- Proposition 1
-- Proposition 2
+- Premièrement, il manque un élèment important : les screens. Il aurait été bien d'en mettre pour aider à comprendre les explications du fonctionnement, de l'interface afin de bien visualiser, parce qu'ici, même si le texte est bien, on a du mal a comprendre comment c'est...
+- Une petite explication de ce qu'est une instance permettrait aussi de mieux comprendre le jeu
+- Concernant l'installation du jeu, il n'est pas précisé sur quelle plateforme (windows, linux...?) nous pouvons le lancer, ni l'archeticture...
+- Il manque des détails pour les actions, quels sont les types et les synergies
+
 
 # Propositions d'amélioration du jeu
 
