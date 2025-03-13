@@ -2,16 +2,8 @@
 
 - Nom du groupe : Shoody-Battlers
 - Membres du groupe : ZOUAOUI-MAHJOUB Saif, LEROUX Aymeric, WILLEM Théo
-- Liens vers les évaluations T4 :
-  - BRUCKER Priscillia: <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Priscillia_Brucker.md>
-  - HATT Victor : <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Victor_Hatt.md>
-  - OREKHOV Vladimir: <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Vladimir_Orekhov.md>
-  - VALETTE-SCHUH Alexis: <https://git.unistra.fr/-/ide/project/shoody_battlers/but-24-t-4-d/edit/master/-/evaluations/evaluation-Alexis_Valette--Schuh.md>
-
 
 ## Re;Master
-
-Voici votre texte corrigé :
 
 Re;Master est un rogue-lite de combat et de "deckbuilding".
 
@@ -24,8 +16,6 @@ Re;Master est un jeu pédagogique dans lequel on rencontre et valide les différ
 ### Procédures d'installation et d'exécution
 Pour lancer le jeu il vous faut simplement cliquer sur ce lien : [Re-Master](https://re-master-umber.vercel.app/)  
 /!\ Ne rechargez pas la page, vous rencontrez une erreur.
-
-Voici la correction de votre texte :
 
 Si vous désirez récupérer le code du jeu, libre à vous de le télécharger depuis ce dépôt. Pour lancer le projet en local :  
 Une fois dans le dossier Projet, exécutez dans votre terminal "npm install" puis exécutez la commande "npm run dev" pour lancer le site internet. Il ne vous reste plus qu'à cliquer sur le lien fourni dans votre terminal.
