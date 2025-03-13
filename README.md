@@ -2,6 +2,8 @@
 
 - Nom du groupe : Shoody-Battlers
 - Membres du groupe : ZOUAOUI-MAHJOUB Saif, LEROUX Aymeric, WILLEM Théo
+- Début : 10 avril 2024
+- Etat : Fonctionnel
 
 ## Re;Master
 
@@ -14,8 +16,6 @@ Re;Master est un jeu pédagogique dans lequel on rencontre et valide les différ
 ![Photo du jeu](./img/Capture%20d’écran%20du%202024-04-12%2014-31-34.png)
 
 ### Procédures d'installation et d'exécution
-Pour lancer le jeu il vous faut simplement cliquer sur ce lien : [Re-Master](https://re-master-umber.vercel.app/)  
-/!\ Ne rechargez pas la page, vous rencontrez une erreur.
 
 Si vous désirez récupérer le code du jeu, libre à vous de le télécharger depuis ce dépôt. Pour lancer le projet en local :  
 Une fois dans le dossier Projet, exécutez dans votre terminal "npm install" puis exécutez la commande "npm run dev" pour lancer le site internet. Il ne vous reste plus qu'à cliquer sur le lien fourni dans votre terminal.
